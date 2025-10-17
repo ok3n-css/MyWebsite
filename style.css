@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Manrope:wght@400;600;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;scroll-behavior:smooth}
+body{
+  font-family:'Manrope',system-ui,Arial,sans-serif;
+  color:#222;
+  line-height:1.65;
+  background:
+    radial-gradient(1200px 800px at 15% 10%, #ffffff 0%, #f7f7f7 50%, #efefef 100%),
+    radial-gradient(900px 600px at 85% 15%, #fafafa 0%, #ededed 60%, #e7e7e7 100%),
+    linear-gradient(180deg,#f9f9f9 0%,#f2f2f2 100%);
+  position:relative;
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(300px 300px at 20% 75%, rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 70%),
+    linear-gradient(135deg, rgba(255,255,255,.35) 0%, rgba(255,255,255,0) 40%),
+    radial-gradient(800px 400px at 50% 100%, rgba(0,0,0,.06) 0%, rgba(0,0,0,0) 70%);
+  pointer-events:none;
+  z-index:-1;
+}
+
+header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:15px 50px;
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid rgba(0,0,0,.06);
+  box-shadow:0 6px 22px rgba(0,0,0,.08);
+  position:sticky;top:0;z-index:1000;
+  transition:transform .35s ease, box-shadow .3s ease, background .3s ease;
+}
+header.scrolled{background:rgba(248,248,248,.95);box-shadow:0 10px 28px rgba(0,0,0,.12)}
+header.nav-hidden{transform:translateY(-110%)}
+
+.logo{font:800 26px 'Outfit',sans-serif;letter-spacing:.4px}
+nav ul{list-style:none;display:flex;gap:22px}
+nav ul li a{text-decoration:none;color:#222;font-weight:700;font-family:'Outfit',sans-serif;letter-spacing:.2px;position:relative}
+nav ul li a::after{content:"";position:absolute;bottom:-3px;left:0;width:0;height:2px;background:#0073e6;transition:.3s}
+nav ul li a:hover::after{width:100%}
+
+.hero{
+  display:flex;justify-content:space-between;align-items:center;gap:40px;
+  padding:72px 70px;
+  margin:32px 50px 0;
+  background:linear-gradient(135deg,#f1f1f1 0%,#ffffff 35%,#f7f7f7 100%);
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:22px;
+  box-shadow:0 24px 48px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.6);
+}
+.hero .intro{max-width:52%;animation:fadeUp 1s ease forwards}
+.hero h1{font:800 38px 'Outfit',sans-serif;letter-spacing:.6px;color:#0f0f0f;margin-bottom:16px;text-shadow:0 1px 0 #fff,0 16px 36px rgba(0,0,0,.08)}
+.hero p{margin-bottom:22px;color:#444;font-size:15.5px}
+.hero .btn{padding:12px 24px;background:#111;color:#fff;text-decoration:none;border-radius:12px;border:1px solid rgba(0,0,0,.12);box-shadow:0 10px 22px rgba(0,0,0,.14);transition:.3s}
+.hero .btn:hover{background:#0073e6;box-shadow:0 14px 28px rgba(0,115,230,.25)}
+.hero-img img{width:290px;border-radius:22px;filter:grayscale(6%);box-shadow:0 22px 44px rgba(0,0,0,.18);border:1px solid rgba(0,0,0,.06);transition:.4s}
+.hero-img img:hover{transform:scale(1.04);filter:grayscale(0%)}
+
+.hobbies,.education,.skills,.gallery,.feedback{opacity:0;transform:translateY(50px);transition:all .8s ease}
+.visible{opacity:1;transform:translateY(0)}
+
+.hobbies{padding:72px 50px;text-align:center}
+.hobbies h2,.education h2,.skills h2,.gallery h2,.feedback h2{font:800 28px 'Outfit',sans-serif;letter-spacing:1px;color:#121212;margin-bottom:20px;text-shadow:0 1px 0 #fff,0 10px 18px rgba(0,0,0,.06)}
+.hobby-container{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:30px}
+.hobby{width:270px;background:#fff;padding:26px;border-radius:18px;border:1px solid rgba(0,0,0,.06);box-shadow:0 14px 32px rgba(0,0,0,.12);transition:.3s}
+.hobby:hover{transform:translateY(-6px);box-shadow:0 20px 42px rgba(0,0,0,.16)}
+.hobby img{width:100%;border-radius:14px;margin-bottom:12px;box-shadow:0 10px 24px rgba(0,0,0,.12);border:1px solid rgba(0,0,0,.06)}
+.hobby h3{font:700 16px 'Outfit',sans-serif}
+
+.education{padding:72px 50px;text-align:center}
+.edu-container{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:30px}
+.edu{width:270px;background:#fff;padding:22px;border-radius:18px;border:1px solid rgba(0,0,0,.06);box-shadow:0 14px 32px rgba(0,0,0,.12);transition:.3s}
+.edu:hover{transform:translateY(-6px);box-shadow:0 20px 42px rgba(0,0,0,.16)}
+.edu img{width:100%;border-radius:14px;margin-bottom:10px;box-shadow:0 10px 24px rgba(0,0,0,.12);border:1px solid rgba(0,0,0,.06)}
+.edu h3{font:700 16px 'Outfit',sans-serif}
+
+.skills{padding:72px 50px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(246,246,246,.95));border-top:1px solid rgba(0,0,0,.04);border-bottom:1px solid rgba(0,0,0,.04)}
+.skill-bars{max-width:680px;margin:30px auto;background:#fff;padding:26px;border-radius:18px;border:1px solid rgba(0,0,0,.06);box-shadow:0 12px 28px rgba(0,0,0,.12)}
+.skill{margin-bottom:20px;text-align:left}
+.skill span{font:800 14px 'Outfit',sans-serif;color:#111}
+.bar{background:#e7e7e7;border-radius:20px;overflow:hidden;height:12px;border:1px solid rgba(0,0,0,.06)}
+.bar div{background:linear-gradient(90deg,#0073e6,#4aa3ff);height:100%;width:0;box-shadow:0 6px 14px rgba(0,115,230,.35);transition:width 1s ease}
+
+.gallery{padding:96px 50px;background:
+  radial-gradient(900px 500px at 90% 6%, #f6f6f6 0%, #eaecef 65%, #e4e5e8 100%),
+  linear-gradient(180deg, #f8f8f8 0%, #e9eaec 100%);
+  text-align:center;border-top:1px solid rgba(0,0,0,.04);border-bottom:1px solid rgba(0,0,0,.04)
+}
+.gallery h2{font:800 48px 'Outfit',sans-serif;letter-spacing:3px;text-transform:uppercase;text-shadow:0 3px 0 #fff,0 6px 14px rgba(0,0,0,.15);margin-bottom:44px}
+.gallery-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,500px));justify-content:center;gap:70px}
+.gallery-box{background:#fff;border-radius:26px;border:1px solid rgba(0,0,0,.06);box-shadow:0 22px 48px rgba(0,0,0,.14);padding:26px;height:560px;display:flex;flex-direction:column}
+.gallery-box>h3{font:800 22px 'Outfit',sans-serif;text-align:center;margin-bottom:16px}
+.gallery-box ul{list-style:none;overflow-y:auto;flex:1 1 auto;padding:6px}
+.gallery-box ul::-webkit-scrollbar{width:8px}
+.gallery-box ul::-webkit-scrollbar-thumb{background:#cfcfd4;border-radius:10px}
+.gallery-box li{display:flex;align-items:center;gap:16px;border-radius:16px;padding:12px;transition:.2s;border:1px solid transparent}
+.gallery-box li:hover{background:#f5f6f8;transform:translateY(-2px);border-color:rgba(0,0,0,.06);box-shadow:0 12px 24px rgba(0,0,0,.10)}
+.gallery-box li img{width:90px;height:90px;border-radius:14px;object-fit:cover;box-shadow:0 10px 24px rgba(0,0,0,.14);border:1px solid rgba(0,0,0,.06)}
+.gallery-box li span{font:800 14px 'Outfit',sans-serif;color:#15171b;letter-spacing:.3px}
+.gallery-box li p{margin:0;font-size:12.5px;line-height:1.55;color:#5f6675}
+
+.feedback{padding:84px 50px;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(246,246,246,.95));text-align:center}
+.feedback-container{display:flex;justify-content:center;gap:26px;flex-wrap:wrap}
+.card{background:#fff;padding:26px;border-radius:18px;width:270px;border:1px solid rgba(0,0,0,.06);box-shadow:0 16px 36px rgba(0,0,0,.14);transition:.3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(0,0,0,.16)}
+.card img{width:86px;height:86px;border-radius:50%;margin-bottom:12px;box-shadow:0 10px 22px rgba(0,0,0,.14);border:1px solid rgba(0,0,0,.06)}
+.feedback-form{margin-top:30px}
+.feedback-form input{padding:12px;width:260px;border:1px solid rgba(0,0,0,.15);border-radius:10px;margin-right:10px;background:#fff;box-shadow:inset 0 6px 16px rgba(0,0,0,.06)}
+.feedback-form button{padding:12px 22px;background:#111;color:#fff;border:1px solid rgba(0,0,0,.12);border-radius:10px;cursor:pointer;transition:.3s;box-shadow:0 12px 26px rgba(0,0,0,.14)}
+.feedback-form button:hover{background:#0073e6;box-shadow:0 16px 30px rgba(0,115,230,.25)}
+
+footer{padding:28px;background:#222;color:#fff;text-align:center;font-size:14px;letter-spacing:.2px}
+
+@keyframes fadeUp{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
